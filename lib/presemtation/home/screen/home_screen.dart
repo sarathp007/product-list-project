@@ -28,7 +28,11 @@ class HomeScreenState extends State<HomeScreen> {
     'assets/images/banner.png',
     'assets/images/banner.png',
   ];
-
+  Future<void> getBanners() async {
+    final homeViewModel =
+    Provider.of<HomeViewModel>(context, listen: false);
+    await homeViewModel.getBanners();
+  }
   final PageController _pageController = PageController();
   int _currentPage = 0; // Keep track of the current page
 
@@ -38,6 +42,7 @@ class HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     homeViewModel = Provider.of<HomeViewModel>(context, listen: false);
+    getBanners();
     getProducts();
     _startAutoScroll(); // Start the auto-scrolling timer
     nameController.addListener(_searchProducts);
