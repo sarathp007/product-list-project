@@ -1,4 +1,3 @@
-# product-list-project
 
 # product-list-project - Setup Guide
 
